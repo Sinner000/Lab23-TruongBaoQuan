@@ -1,0 +1,50 @@
+﻿@model Lab23_TruongBaoQuan.Models.Book
+
+@{
+    ViewBag.Title = "EditBook";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="padding-left:80px" class="text-danger">EditBook</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.Id)
+<table>
+    <tr>
+        <td>
+            Title;
+        </td>
+        <td>
+            @Html.TextBoxFor(model => model.Title, new { @class = "form-control", placeholder = "Title" })
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Author;
+        </td>
+        <td>
+            @Html.TextBoxFor(model => model.Author, new { @class = "form-control", placeholder = "Author" })
+        </td>
+    </tr>
+    <tr>
+        <td>
+            ImageCover;
+        </td>
+        <td>
+            @Html.TextBoxFor(model => model.ImageCover, new { @class = "form-control", placeholder = "ImageCover" })
+        </td>
+    </tr>
+    <tr style="text-align:center; padding-top:20px">
+        <td colspan="2">
+            <input type="submit" value="Save book" class="btn btn-danger"/>
+        </td>
+    </tr>
+</table>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
